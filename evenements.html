@@ -47,6 +47,22 @@
 
 		  gtag('config', 'UA-42715764-11');
 		</script>
+		<style>
+			.map-container {
+			  position: relative;
+			  width: 100%;
+			  height: 0;
+			  padding-bottom: 30%; /* 16:9 aspect ratio */
+			}
+			.map-container iframe {
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 100%;
+			  border: 0;
+			}
+		  </style>
 
 	</head>
 	<body>
@@ -170,7 +186,7 @@
 					<div class="container">
 						<div class="row my-4">
 							<div class="col-md-12 align-self-center text-center">
-								<h1 class="text-9 text-color-light custom-secondary-font font-weight-bold my-4">Events</h1>
+								<h1 class="text-9 text-color-light custom-secondary-font font-weight-bold my-4">Événements</h1>
 							</div>
 						</div>
 					</div>
@@ -180,7 +196,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-6 mb-4 mb-lg-0">
-								<h2 class="text-color-dark font-weight-bold">Next Event</h2>
+								<h2 class="text-color-dark font-weight-bold">Prochain événement</h2>
 								<article class="thumb-info custom-thumb-info custom-box-shadow">
 									<span class="thumb-info-wrapper">
 										<a href="demo-church-events-detail.html">
@@ -189,7 +205,7 @@
 									</span>
 									<span class="thumb-info-caption">
 										<span class="custom-thumb-info-wrapper-box text-center justify-content-center d-flex mb-4">
-											<div class="countdown custom-newcomers-class custom-secondary-font custom-box-shadow font-weight-bold text-color-dark clock-one-events" data-plugin-countdown data-plugin-options="{'textDay': 'DAYS', 'textHour': 'HRS', 'textMin': 'MIN', 'textSec': 'SEC', 'date': '2025/01/01 12:00:00', 'numberClass': 'font-weight-bold text-color-primary', 'wrapperClass': 'text-color-dark', 'textDay': 'DAYS', 'textHour': 'Hrs', 'textMin': 'Min', 'textSec': 'Sec', 'uppercase': false}"></div>
+											<div class="countdown custom-newcomers-class custom-secondary-font custom-box-shadow font-weight-bold text-color-dark clock-one-events" data-plugin-countdown data-plugin-options="{'textDay': 'JOURS', 'textHour': 'HRS', 'textMin': 'MIN', 'textSec': 'SEC', 'date': '2025/01/01 12:00:00', 'numberClass': 'font-weight-bold text-color-primary', 'wrapperClass': 'text-color-dark', 'textDay': 'JOURS', 'textHour': 'Hrs', 'textMin': 'Min', 'textSec': 'Sec', 'uppercase': false}"></div>
 										</span>
 										<span class="custom-event-infos">
 											<ul>
@@ -215,7 +231,7 @@
 								</article>
 							</div>
 							<div class="col-lg-6">
-								<h2 class="text-color-dark font-weight-bold">Upcoming Event</h2>
+								<h2 class="text-color-dark font-weight-bold">Evénement à venir</h2>
 								<article class="custom-post-event">
 									<div class="post-event-date bg-color-primary text-center">
 										<span class="month text-uppercase custom-secondary-font text-color-light">Oct</span>
@@ -276,7 +292,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col">
-								<h2 class="font-weight-bold text-color-dark mb-3">Past Events</h2>
+								<h2 class="font-weight-bold text-color-dark mb-3">Événements passés</h2>
 							</div>
 						</div>
 						<div class="row">
@@ -409,11 +425,11 @@
 					<div class="container">
 						<div class="row align-items-center">
 							<div class="col-lg-10">
-								<span class="custom-secondary-font font-weight-bold custom-text-color-1 text-4">First time visitor</span>
-								<h2 class="font-weight-bold custom-text-color-1 m-0">Find out more about the Church. <span class="font-weight-normal custom-secondary-font custom-font-italic">You belong here</span></h2>
+								<span class="custom-secondary-font font-weight-bold custom-text-color-1 text-4">Première visite</span>
+								<h2 class="font-weight-bold custom-text-color-1 m-0">En savoir plus sur l'Église. <span class="font-weight-normal custom-secondary-font custom-font-italic">Votre place est ici</span></h2>
 							</div>
 							<div class="col-lg-2 mt-4 mt-lg-0">
-								<a href="demo-church-about-us.html" class="btn btn-primary custom-btn-style-1 text-uppercase">Visitors Guide</a>
+								<a href="aproposdenous.html" class="btn btn-primary custom-btn-style-1 text-uppercase">Guide des visiteurs</a>
 							</div>
 						</div>
 					</div>
@@ -490,7 +506,7 @@
 		<!-- Theme Initialization Files -->
 		<script src="js/theme.init.js"></script>
 
-	<!-- Google Maps -->
+	<!-- Google Maps
 		<script>
 
 			/* 
@@ -547,7 +563,7 @@
 
 			initMap();	
 
-		</script>
+		</script> -->
 
 	</body>
 </html>

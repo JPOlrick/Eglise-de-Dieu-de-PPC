@@ -47,6 +47,22 @@
 
 		  gtag('config', 'UA-42715764-11');
 		</script>
+		<style>
+			.map-container {
+			  position: relative;
+			  width: 100%;
+			  height: 0;
+			  padding-bottom: 30%; /* 16:9 aspect ratio */
+			}
+			.map-container iframe {
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 100%;
+			  border: 0;
+			}
+		  </style>
 
 	</head>
 	<body>
@@ -61,6 +77,7 @@
 									<p class="alternative-font-4 mb-0"><strong class="text-color-dark">Église de Dieu de Petite Place Cazeau</strong></p>
 								</div>
 								<div class="col-auto d-flex align-items-center">
+									
 									<nav>
 										<ul class="list list-unstyled d-flex text-1 mb-0">
 											<li class="mb-0"><a href="aproposdenous.html#talkus" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">PLANIFIEZ VOTRE VISITE</a></li>
@@ -547,7 +564,11 @@
 						<a class="custom-view-location custom-secondary-font font-weight-bold text-color-light text-decoration-none" data-bs-toggle="collapse" href="#collapseMap" role="button" aria-expanded="false" aria-controls="collapseMap">Voir notre emplacement</a>
 					</div>
 					<div class="collapse" id="collapseMap">
-						<div id="googlemaps" class="google-map m-0"></div>
+						<div id="googlemaps" class="google-map m-0">
+							<div class="map-container">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.3494147603546!2d-72.28215942309667!3d18.558279382542732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb9e6526c49da91%3A0xcd1b8d57a709a801!2sEglise%20De%20Dieu%20De%20Petite%20Place%20Cazeau!5e0!3m2!1sen!2sus!4v1720633197075!5m2!1sen!2sus" width="" height="" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							</div>
+						</div>
 					</div>
 				</section>
 
@@ -623,63 +644,104 @@
 		<script src="js/theme.init.js"></script>
 
 	<!-- Google Maps -->
-		<script>
-
-			/* 
-			Map Markers:
-			- Get an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key
-			- Generate Map Id: https://console.cloud.google.com/google/maps-apis/studio/maps
-			- Use https://www.latlong.net/convert-address-to-lat-long.html to get Latitude and Longitude of a specific address
-			*/
-			(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-				({key: "AIzaSyAhpYHdYRY2U6V_VfyyNtkPHhywLjDkhfg", v: "weekly"});
-
-			async function initMap() {
-				const { Map, InfoWindow } = await google.maps.importLibrary("maps");
-				const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
-					"marker",
-				);
-				const map = new Map(document.getElementById("googlemaps"), {
-					zoom: 14,
-					center: { lat: -37.817240, lng: 144.955820 },
-					mapId: "bacc27c8c034b32e",
-				});
-				const markers = [
-					{
-						position: { lat: -37.817240, lng: 144.955820 },
-						title: "Office 1<br>Melbourne, 121 King St, Australia<br>Phone: 123-456-1234",
-					}
-				];
-
-				const infoWindow = new InfoWindow();
-
-				markers.forEach(({ position, title }, i) => {
-					const pin = new PinElement({
-						background: "#e36159",
-						borderColor: "#e36159",
-						glyphColor: "#FFF",
-					});
-					const marker = new AdvancedMarkerElement({
-						position,
-						map,
-						title: `${title}`,
-						content: pin.element,
-					});
-
-					marker.addListener("click", ({ domEvent, latLng }) => {
-						const { target } = domEvent;
-
-						infoWindow.close();
-						infoWindow.setContent(marker.title);
-						infoWindow.open(marker.map, marker);
-					});
-				});	
-
-			}
-
-			initMap();	
-
-		</script>
+	<!-- <script>
+		/* 
+		Map Markers:
+		- Get an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key
+		- Generate Map Id: https://console.cloud.google.com/google/maps-apis/studio/maps
+		- Use https://www.latlong.net/convert-address-to-lat-long.html to get Latitude and Longitude of a specific address
+		*/
+		(g => {
+		  var h, a, k, p = "The Google Maps JavaScript API",
+			c = "google",
+			l = "importLibrary",
+			q = "__ib__",
+			m = document,
+			b = window;
+		  b = b[c] || (b[c] = {});
+		  var d = b.maps || (b.maps = {}),
+			r = new Set,
+			e = new URLSearchParams,
+			u = () => h || (h = new Promise(async (f, n) => {
+			  await (a = m.createElement("script"));
+			  e.set("libraries", [...r] + "");
+			  for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]);
+			  e.set("callback", c + ".maps." + q);
+			  a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+			  d[q] = f;
+			  a.onerror = () => h = n(Error(p + " could not load."));
+			  a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+			  m.head.append(a)
+			}));
+		  d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
+		})({
+		  key: "AIzaSyAhpYHdYRY2U6V_VfyyNtkPHhywLjDkhfg",
+		  v: "weekly"
+		});
+	
+		async function initMap() {
+		  const {
+			Map,
+			InfoWindow
+		  } = await google.maps.importLibrary("maps");
+		  const {
+			AdvancedMarkerElement,
+			PinElement
+		  } = await google.maps.importLibrary(
+			"marker",
+		  );
+		  const map = new Map(document.getElementById("googlemaps"), {
+			zoom: 14,
+			center: {
+			  lat: 18.590704,
+			  lng: -72.292401
+			},
+			mapId: "bacc27c8c034b32e",
+		  });
+		  const markers = [{
+			position: {
+			  lat: 18.590704,
+			  lng: -72.292401
+			},
+			title: "Église<br>1 angle rue Saint Pierre et camep, petite place cazeau HT 6124 Delmas, Haiti<br>Phone: 123-456-1234",
+		  }];
+	
+		  const infoWindow = new InfoWindow();
+	
+		  markers.forEach(({
+			position,
+			title
+		  }, i) => {
+			const pin = new PinElement({
+			  background: "#e36159",
+			  borderColor: "#e36159",
+			  glyphColor: "#FFF",
+			});
+			const marker = new AdvancedMarkerElement({
+			  position,
+			  map,
+			  title: `${title}`,
+			  content: pin.element,
+			});
+	
+			marker.addListener("click", ({
+			  domEvent,
+			  latLng
+			}) => {
+			  const {
+				target
+			  } = domEvent;
+	
+			  infoWindow.close();
+			  infoWindow.setContent(marker.title);
+			  infoWindow.open(marker.map, marker);
+			});
+		  });
+	
+		}
+	
+		initMap();
+	  </script> -->
 
 	</body>
 </html>
