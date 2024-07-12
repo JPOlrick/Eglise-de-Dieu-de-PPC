@@ -52,7 +52,9 @@
 	<body>
 
 		<div class="body">
-			<?php include('header.php');?>
+			<?php
+			$current_page = 'index.php';
+			 include('header.php');?>
 			
 
 			<div role="main" class="main">
