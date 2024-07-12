@@ -96,7 +96,7 @@
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
 												<a data-href="ajax/demo-church-gallery-ajax-on-page-1.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-													Baptism
+													Baptêmes
 												</a>
 											</h2>
 										</span>
@@ -114,7 +114,7 @@
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
 												<a data-href="ajax/demo-church-gallery-ajax-on-page-2.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-													Wedding
+													Mariages
 												</a>
 											</h2>
 										</span>
@@ -132,7 +132,7 @@
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
 												<a data-href="ajax/demo-church-gallery-ajax-on-page-3.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-													Church Community
+													Nos Cultes
 												</a>
 											</h2>
 										</span>
@@ -150,7 +150,7 @@
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
 												<a data-href="ajax/demo-church-gallery-ajax-on-page-2.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-													Wedding
+													Chapelle des Enfants
 												</a>
 											</h2>
 										</span>
