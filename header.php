@@ -63,7 +63,7 @@
 								<div class="col-auto d-flex align-items-center">
 									<nav>
 										<ul class="list list-unstyled d-flex text-1 mb-0">
-											<li class="mb-0"><a href="aproposdenous.php#talkus" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold <?php echo $current_page == 'aproposdenous.php' ? 'active' : ''; ?>">PLANIFIEZ VOTRE VISITE</a></li>
+											<li class="mb-0"><a href="aproposdenous.php#talkus" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">PLANIFIEZ VOTRE VISITE</a></li>
 											<li class="mb-0 ms-4-5 "><a href="evenements.php" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">CALENDRIER</a></li>
 											<li class="mb-0 ms-4-5 "><a href="donation.php" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">FAIRE UN DON</a></li>
 										</ul>
@@ -108,7 +108,7 @@
 														</a>
 													</li>
 													<li class="dropdown dropdown-full-color dropdown-primary">
-														<a class="dropdown-item dropdown-toggle <?php echo $current_page == 'apropos.php' ? 'active' : ''; ?>" href="apropos.php">
+														<a class="dropdown-item dropdown-toggle <?php echo $current_page == 'aproposdenous.php' ? 'active' : ''; ?>" href="aproposdenous.php">
 															À propos de nous
 														</a>
 														<ul class="dropdown-menu">
