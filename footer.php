@@ -59,8 +59,8 @@
 				<div class="container pt-5">
 					<div class="row text-center">
 						<div class="col">
-							<a href="index.html" class="text-decoration-none">
-								<img src="img/lfoot.png" width="123" height="48" alt class="img-fluid custom-img-fluid-center" />
+							<a href="index.php" class="text-decoration-none">
+								<img src="img/lfooti.png" width="123" height="48" alt class="img-fluid custom-img-fluid-center" />
 							</a>
 						</div>
 					</div>

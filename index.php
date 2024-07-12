@@ -47,7 +47,35 @@
 
 		  gtag('config', 'UA-42715764-11');
 		</script>
-	
+		<script>
+			function initMap() {
+			const location = { lat: 18.5392, lng: -72.3364 }; // Coordonnées pour "1 angle rue Saint Pierre et camep, petite place cazeau HT 6124 Delmas, Haiti"
+			const map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 15,
+				center: location
+			});
+			const marker = new google.maps.Marker({
+				position: location,
+				map: map
+			});
+			}
+  		</script>
+	 <style>
+			.map-container {
+			  position: relative;
+			  width: 100%;
+			  height: 0;
+			  padding-bottom: 30%; /* 16:9 aspect ratio */
+			}
+			.map-container iframe {
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  width: 100%;
+			  height: 100%;
+			  border: 0;
+			}
+		  </style>
 
 	</head>
 	<body>
@@ -441,9 +469,10 @@
 						<a class="custom-view-location custom-secondary-font font-weight-bold text-color-light text-decoration-none" data-bs-toggle="collapse" href="#collapseMap" role="button" aria-expanded="false" aria-controls="collapseMap">Voir notre emplacement</a>
 					</div>
 					<div class="collapse" id="collapseMap">
-						<div id="googlemaps" class="google-map m-0">
+						<div id="map" class="google-map m-0">
 						<div class="map-container">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.3494147603546!2d-72.28215942309667!3d18.558279382542732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb9e6526c49da91%3A0xcd1b8d57a709a801!2sEglise%20De%20Dieu%20De%20Petite%20Place%20Cazeau!5e0!3m2!1sen!2sus!4v1720633197075!5m2!1sen!2sus" width="" height="" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							<div>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.3494147603574!2d-72.28215942310082!3d18.55827938254262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb9e6526c49da91%3A0xcd1b8d57a709a801!2sEglise%20De%20Dieu%20De%20Petite%20Place%20Cazeau!5e0!3m2!1sen!2sht!4v1720799362229!5m2!1sen!2sht" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 							</div>
 						</div>
 					</div>
