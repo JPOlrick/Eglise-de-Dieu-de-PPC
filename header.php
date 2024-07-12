@@ -63,8 +63,9 @@
 								<div class="col-auto d-flex align-items-center">
 									<nav>
 										<ul class="list list-unstyled d-flex text-1 mb-0">
-											<li class="mb-0"><a href="aproposdenous.html#talkus" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">PLANIFIEZ VOTRE VISITE</a></li>
-											<li class="mb-0 ms-4-5 d-none d-sm-block"><a href="evenements.html" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">CALENDRIER</a></li>
+											<li class="mb-0"><a href="aproposdenous.php#talkus" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">PLANIFIEZ VOTRE VISITE</a></li>
+											<li class="mb-0 ms-4-5 "><a href="evenements.php" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">CALENDRIER</a></li>
+											<li class="mb-0 ms-4-5 "><a href="aproposdenous.php#talkus" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">FAIRE UN DON</a></li>
 										</ul>
 									</nav>
 									<div class="header-nav-features d-none d-md-block ms-5-5">
@@ -89,7 +90,7 @@
 							<div class="header-column">
 								<div class="header-row">
 									<div class="header-logo">
-										<a href="index.html">
+										<a href="index.php">
 											<img alt="EDPPC" width="200" height="100" src="img/EDPPC.png">
 										</a>
 									</div>
@@ -102,17 +103,17 @@
 											<nav class="collapse">
 												<ul class="nav nav-pills" id="mainNav">
 													<li>
-														<a class="nav-link" href="index.php">
+														<a class=" nav-link <?php echo $current_page == 'index.php' ? 'active' : ''; ?>" href="index.php">
 															Accueil
 														</a>
 													</li>
 													<li class="dropdown dropdown-full-color dropdown-primary">
-														<a class="dropdown-item dropdown-toggle" href="apropos.php">
+														<a class="dropdown-item dropdown-toggle <?php echo $current_page == 'apropos.php' ? 'active' : ''; ?>" href="apropos.php">
 															À propos de nous
 														</a>
 														<ul class="dropdown-menu">
 															<li>
-																<a class="dropdown-item" href="apropos.php">Vue d'ensemble</a>
+																<a class="dropdown-item <?php echo $current_page == 'apropos.php' ? 'active' : ''; ?>" href="apropos.php">Vue d'ensemble</a>
 															</li>
 															<li>
 																<a class="dropdown-item" href="demo-church-about-us-staff.html">Le personnel</a>
@@ -123,32 +124,37 @@
 														</ul>
 													</li>
 													<li>
-														<a class="nav-link" href="demo-church-sermons.html">
+														<a class="nav-link <?php echo $current_page == 'sermons.php' ? 'active' : ''; ?>" href="demo-church-sermons.html">
 															Sermons
 														</a>
 													</li>
 													<li>
-														<a class="nav-link active" href="evenements.html">
+														<a class="nav-link <?php echo $current_page == 'evenements.php' ? 'active' : ''; ?>" href="evenements.html">
 															Événements
 														</a>
 													</li>
 													<li>
-														<a class="nav-link" href="demo-church-gallery.html">
+														<a class="nav-link <?php echo $current_page == 'galerie.php' ? 'active' : ''; ?>" href="galerie.php">
 															Galerie
 														</a>
 													</li>		
 													<li class="dropdown dropdown-full-color dropdown-primary">
-															<a class="dropdown-item dropdown-toggle" href="demo-church-blog.html">
+															<a class="dropdown-item dropdown-toggle <?php echo $current_page == 'blog.php' ? 'active' : ''; ?>" href="demo-church-blog.html">
 																Blog
 															</a>
 															<ul class="dropdown-menu">
 																<li>
-																	<a class="dropdown-item" href="aproposdenous.html">Les départements</a>
+																	<a class="dropdown-item <?php echo $current_page == 'blog.php' ? 'active' : ''; ?>" href="aproposdenous.php">Les départements</a>
 																</li>
 																<li>
-																	<a class="dropdown-item" href="demo-church-about-us-staff.html">Les groupes</a>
+																	<a class="dropdown-item <?php echo $current_page == 'blog.php' ? 'active' : ''; ?>" href="demo-church-about-us-staff.html">Les groupes</a>
 																</li>
 															</ul>
+													</li>
+													<li>
+														<a class="nav-link <?php echo $current_page == 'contacteznous.php' ? 'active' : ''; ?>" href="donation.html">
+															Contactez-nous
+														</a>
 													</li>
 												</ul>
 											</nav>
@@ -166,11 +172,6 @@
 
 			  
 
-		<a class="style-switcher-open-loader" href="#" data-base-path="" data-skin-src="master/less/skin-church.less" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="right" title="Style Switcher" aria-label="Style Switcher"><i class="fas fa-cogs"></i><div class="style-switcher-tooltip"><strong>Style Switcher</strong><p>Check out different color options and styles.</p></div></a>
-		
-		<a class="envato-buy-redirect" href="https://themeforest.net/checkout/from_item/4106987?license=regular&support=bundle_6month&ref=Okler" target="_blank" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="right" title="Buy Porto"><i class="fas fa-shopping-cart"></i></a>
-		<a class="demos-redirect" href="index.html#demos" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="right" title="Demos"><img alt="Demos" src="img/icons/demos-redirect.png" class="img-fluid" /></a>
-		
 
 		<!-- Vendor -->		<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="vendor/plugins/js/plugins.min.js"></script>		<script src="vendor/jquery.countdown/jquery.countdown.min.js"></script>
 
@@ -185,65 +186,6 @@
 
 		<!-- Theme Initialization Files -->
 		<script src="js/theme.init.js"></script>
-
-	<!-- Google Maps -->
-		<script>
-
-			/* 
-			Map Markers:
-			- Get an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key
-			- Generate Map Id: https://console.cloud.google.com/google/maps-apis/studio/maps
-			- Use https://www.latlong.net/convert-address-to-lat-long.html to get Latitude and Longitude of a specific address
-			*/
-			(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-				({key: "AIzaSyAhpYHdYRY2U6V_VfyyNtkPHhywLjDkhfg", v: "weekly"});
-
-			async function initMap() {
-				const { Map, InfoWindow } = await google.maps.importLibrary("maps");
-				const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
-					"marker",
-				);
-				const map = new Map(document.getElementById("googlemaps"), {
-					zoom: 14,
-					center: { lat: -37.817240, lng: 144.955820 },
-					mapId: "bacc27c8c034b32e",
-				});
-				const markers = [
-					{
-						position: { lat: -37.817240, lng: 144.955820 },
-						title: "Office 1<br>Melbourne, 121 King St, Australia<br>Phone: 123-456-1234",
-					}
-				];
-
-				const infoWindow = new InfoWindow();
-
-				markers.forEach(({ position, title }, i) => {
-					const pin = new PinElement({
-						background: "#e36159",
-						borderColor: "#e36159",
-						glyphColor: "#FFF",
-					});
-					const marker = new AdvancedMarkerElement({
-						position,
-						map,
-						title: `${title}`,
-						content: pin.element,
-					});
-
-					marker.addListener("click", ({ domEvent, latLng }) => {
-						const { target } = domEvent;
-
-						infoWindow.close();
-						infoWindow.setContent(marker.title);
-						infoWindow.open(marker.map, marker);
-					});
-				});	
-
-			}
-
-			initMap();	
-
-		</script>
 
 	</body>
 </html>
