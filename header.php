@@ -139,7 +139,7 @@
 														</a>
 													</li>		
 													<li class="dropdown dropdown-full-color dropdown-primary">
-															<a class="dropdown-item dropdown-toggle <?php echo $current_page == 'blog.php' ? 'active' : ''; ?>" href="demo-church-blog.html">
+															<a class="dropdown-item dropdown-toggle <?php echo $current_page == 'blog.php' ? 'active' : ''; ?>" href="blog.php">
 																Blog
 															</a>
 															<ul class="dropdown-menu">
