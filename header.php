@@ -65,7 +65,7 @@
 										<ul class="list list-unstyled d-flex text-1 mb-0">
 											<li class="mb-0"><a href="aproposdenous.php#talkus" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">PLANIFIEZ VOTRE VISITE</a></li>
 											<li class="mb-0 ms-4-5 "><a href="evenements.php" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">CALENDRIER</a></li>
-											<li class="mb-0 ms-4-5 "><a href="aproposdenous.php#talkus" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">FAIRE UN DON</a></li>
+											<li class="mb-0 ms-4-5 "><a href="donation.php" class="alternative-font-4 text-decoration-none text-3-5 font-weight-bold">FAIRE UN DON</a></li>
 										</ul>
 									</nav>
 									<div class="header-nav-features d-none d-md-block ms-5-5">
@@ -129,7 +129,7 @@
 														</a>
 													</li>
 													<li>
-														<a class="nav-link <?php echo $current_page == 'evenements.php' ? 'active' : ''; ?>" href="evenements.html">
+														<a class="nav-link <?php echo $current_page == 'evenements.php' ? 'active' : ''; ?>" href="evenements.php">
 															Événements
 														</a>
 													</li>
@@ -152,7 +152,7 @@
 															</ul>
 													</li>
 													<li>
-														<a class="nav-link <?php echo $current_page == 'contacteznous.php' ? 'active' : ''; ?>" href="donation.html">
+														<a class="nav-link <?php echo $current_page == 'contacteznous.php' ? 'active' : ''; ?>" href="contacteznous.php">
 															Contactez-nous
 														</a>
 													</li>
