@@ -82,8 +82,10 @@
 
 		<div class="body">
 			<?php
-			$current_page = 'index.php';
-			 include('header.php');?>
+				$current_page = 'index.php';
+				include('header.php');
+			?>
+
 			
 
 			<div role="main" class="main">

@@ -50,6 +50,12 @@
 
 	</head>
 	<body>
+	<?php
+		if (!isset($current_page)) {
+			$current_page = ''; // ou définissez une valeur par défaut appropriée
+		}
+	?>
+
 
 		<div class="body">
 			<header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': false, 'stickyStartAt': 100, 'stickyHeaderContainerHeight': 70}">
