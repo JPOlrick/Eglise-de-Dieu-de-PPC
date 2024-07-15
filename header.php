@@ -51,7 +51,7 @@
 	</head>
 	<body>
 
-	<div class="body">
+		<div class="body">
 			<header id="header" class="header-effect-shrink" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'shrink', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyChangeLogo': false, 'stickyStartAt': 100, 'stickyHeaderContainerHeight': 70}">
 				<div class="header-body border-top-0">
 					<div class="header-top">
@@ -86,7 +86,7 @@
 						</div>
 					</div>
 					<div class="header-container container">
-						<div class="header-row ">
+						<div class="header-row">
 							<div class="header-column">
 								<div class="header-row">
 									<div class="header-logo">
@@ -188,5 +188,4 @@
 		<script src="js/theme.init.js"></script>
 
 	</body>
-	
 </html>
