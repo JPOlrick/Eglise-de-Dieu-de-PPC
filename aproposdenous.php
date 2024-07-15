@@ -54,7 +54,9 @@
 		<div class="body">
 		<?php
 			$current_page = 'aproposdenous.php';
-			 include('header.php');?>
+			include('header.php');
+		?>
+
 
 			<div role="main" class="main">
 
