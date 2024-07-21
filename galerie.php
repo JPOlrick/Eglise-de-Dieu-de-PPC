@@ -1,3 +1,9 @@
+<?php
+include('include/config.php');
+?> 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -6,11 +12,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Demo Church | Porto - Multipurpose Website Template</title>	
+				<title>EDPPC | Galerie </title>	
 
-		<meta name="keywords" content="WebSite Template" />
-		<meta name="description" content="Porto - Multipurpose Website Template">
-		<meta name="author" content="okler.net">
+			<meta name="keywords" content="EDPPC" />
+		<meta name="description" content="Église de Dieu de Petite Place Cazeau">
+		<meta name="author" content="EDPPC">
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -61,7 +67,7 @@
 					<div class="container">
 						<div class="row my-4">
 							<div class="col-md-12 align-self-center text-center">
-								<h1 class="text-9 text-color-light custom-secondary-font font-weight-bold my-4">Gallery</h1>
+								<h1 class="text-9 text-color-light custom-secondary-font font-weight-bold my-4">Galerie</h1>
 							</div>
 						</div>
 					</div>
@@ -87,15 +93,28 @@
 						<div class="row" data-plugin-masonry data-plugin-options="{'itemSelector': '.col-lg-4'}">
 							<div class="col-lg-4">
 								<span class="thumb-info custom-thumb-info-4">
-									<a data-href="ajax/demo-church-gallery-ajax-on-page-1.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-										<span class="thumb-info-wrapper">
-											<img src="img/demos/church/gallery/gallery-1.jpg" alt class="img-fluid" />
+									<a data-href="ajax/gallery-ajax-on-page-1.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+										
+										<?php
+												$sql=mysqli_query($con," SELECT * FROM `galerie` WHERE `type`='Baptemes' order by `id_photo` desc limit 1");
+												$cnt=1;
+												while($row=mysqli_fetch_array($sql))
+													{
+										?>
+										
+									<span class="thumb-info-wrapper">
+											<img src="galerie/<?php echo $row['photo'];?>" alt class="img-fluid" />
 										</span>
 									</a>
+									<?php 
+										$cnt=$cnt+1;
+										 }
+									?>
+									
 									<span class="thumb-info-caption custom-box-shadow">
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
-												<a data-href="ajax/demo-church-gallery-ajax-on-page-1.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+												<a data-href="ajax/gallery-ajax-on-page-1.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
 													Baptêmes
 												</a>
 											</h2>
@@ -105,15 +124,28 @@
 							</div>
 							<div class="col-lg-4">
 								<span class="thumb-info custom-thumb-info-4">
-									<a data-href="ajax/demo-church-gallery-ajax-on-page-2.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-										<span class="thumb-info-wrapper">
-											<img src="img/demos/church/gallery/gallery-2.jpg" alt class="img-fluid" />
+									<a data-href="ajax/gallery-ajax-on-page-2.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+										
+										
+										<?php
+												$sql=mysqli_query($con," SELECT * FROM `galerie` WHERE `type`='Mariages' order by `id_photo` desc limit 1");
+												$cnt=1;
+												while($row=mysqli_fetch_array($sql))
+													{
+										?>
+										
+									<span class="thumb-info-wrapper">
+											<img src="galerie/<?php echo $row['photo'];?>" alt class="img-fluid" />
 										</span>
 									</a>
+									<?php 
+										$cnt=$cnt+1;
+										 }
+									?>
 									<span class="thumb-info-caption custom-box-shadow">
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
-												<a data-href="ajax/demo-church-gallery-ajax-on-page-2.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+												<a data-href="ajax/gallery-ajax-on-page-2.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
 													Mariages
 												</a>
 											</h2>
@@ -123,15 +155,26 @@
 							</div>
 							<div class="col-lg-4">
 								<span class="thumb-info custom-thumb-info-4">
-									<a data-href="ajax/demo-church-gallery-ajax-on-page-3.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-										<span class="thumb-info-wrapper">
-											<img src="img/demos/church/gallery/gallery-3.jpg" alt class="img-fluid" />
+									<a data-href="ajax/gallery-ajax-on-page-3.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+										<?php
+												$sql=mysqli_query($con," SELECT * FROM `galerie` WHERE `type`='Nos Cultes' order by `id_photo` desc limit 1");
+												$cnt=1;
+												while($row=mysqli_fetch_array($sql))
+													{
+										?>
+										
+									<span class="thumb-info-wrapper">
+											<img src="galerie/<?php echo $row['photo'];?>" alt class="img-fluid" />
 										</span>
 									</a>
+									<?php 
+										$cnt=$cnt+1;
+										 }
+									?>
 									<span class="thumb-info-caption custom-box-shadow">
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
-												<a data-href="ajax/demo-church-gallery-ajax-on-page-3.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+												<a data-href="ajax/gallery-ajax-on-page-3.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
 													Nos Cultes
 												</a>
 											</h2>
@@ -141,15 +184,29 @@
 							</div>
 							<div class="col-lg-4">
 								<span class="thumb-info custom-thumb-info-4">
-									<a data-href="ajax/demo-church-gallery-ajax-on-page-2.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-										<span class="thumb-info-wrapper">
-											<img src="img/demos/church/gallery/gallery-4.jpg" alt class="img-fluid" />
+									<a data-href="ajax/gallery-ajax-on-page-5.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+										<?php
+												$sql=mysqli_query($con," SELECT * FROM `galerie` WHERE `type`='Chapelle des Enfants' order by `id_photo` desc limit 1");
+												$cnt=1;
+												while($row=mysqli_fetch_array($sql))
+													{
+										?>
+										
+									<span class="thumb-info-wrapper">
+											<img src="galerie/<?php echo $row['photo'];?>" alt class="img-fluid" />
 										</span>
 									</a>
+									<?php 
+										$cnt=$cnt+1;
+										 }
+									?>
+									</a>
+									
+									
 									<span class="thumb-info-caption custom-box-shadow">
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
-												<a data-href="ajax/demo-church-gallery-ajax-on-page-2.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+												<a data-href="ajax/gallery-ajax-on-page-5.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
 													Chapelle des Enfants
 												</a>
 											</h2>
@@ -159,16 +216,28 @@
 							</div>
 							<div class="col-lg-4">
 								<span class="thumb-info custom-thumb-info-4">
-									<a data-href="ajax/demo-church-gallery-ajax-on-page-3.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-										<span class="thumb-info-wrapper">
-											<img src="img/demos/church/gallery/gallery-5.jpg" alt class="img-fluid" />
+									<a data-href="ajax/gallery-ajax-on-page-6.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+											<?php
+												$sql=mysqli_query($con," SELECT * FROM `galerie` WHERE `type`='Reveil annuel' order by `id_photo` desc limit 1");
+												$cnt=1;
+												while($row=mysqli_fetch_array($sql))
+													{
+										?>
+										
+									<span class="thumb-info-wrapper">
+											<img src="galerie/<?php echo $row['photo'];?>" alt class="img-fluid" />
 										</span>
+									</a>
+									<?php 
+										$cnt=$cnt+1;
+										 }
+									?>
 									</a>
 									<span class="thumb-info-caption custom-box-shadow">
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
-												<a data-href="ajax/demo-church-gallery-ajax-on-page-3.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-													Church Community
+												<a data-href="ajax/gallery-ajax-on-page-6.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+													Reveil annuel
 												</a>
 											</h2>
 										</span>
@@ -177,16 +246,28 @@
 							</div>
 							<div class="col-lg-4">
 								<span class="thumb-info custom-thumb-info-4">
-									<a data-href="ajax/demo-church-gallery-ajax-on-page-1.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-										<span class="thumb-info-wrapper">
-											<img src="img/demos/church/gallery/gallery-6.jpg" alt class="img-fluid" />
+									<a data-href="ajax/gallery-ajax-on-page-6.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+											<?php
+												$sql=mysqli_query($con," SELECT * FROM `galerie` WHERE `type`='anniversaire' order by `id_photo` desc limit 1");
+												$cnt=1;
+												while($row=mysqli_fetch_array($sql))
+													{
+										?>
+										
+									<span class="thumb-info-wrapper">
+											<img src="galerie/<?php echo $row['photo'];?>" alt class="img-fluid" />
 										</span>
+									</a>
+									<?php 
+										$cnt=$cnt+1;
+										 }
+									?>
 									</a>
 									<span class="thumb-info-caption custom-box-shadow">
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
-												<a data-href="ajax/demo-church-gallery-ajax-on-page-1.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-													Baptism
+												<a data-href="ajax/gallery-ajax-on-page-4.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+													Anniversaire de l'Eglise
 												</a>
 											</h2>
 										</span>
@@ -195,16 +276,28 @@
 							</div>
 							<div class="col-lg-4">
 								<span class="thumb-info custom-thumb-info-4">
-									<a data-href="ajax/demo-church-gallery-ajax-on-page-1.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-										<span class="thumb-info-wrapper">
-											<img src="img/demos/church/gallery/gallery-7.jpg" alt class="img-fluid" />
+									<a data-href="ajax/gallery-ajax-on-page-7.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+										<?php
+												$sql=mysqli_query($con," SELECT * FROM `galerie` WHERE `type`='Presentation au temple' order by `id_photo` desc limit 1");
+												$cnt=1;
+												while($row=mysqli_fetch_array($sql))
+													{
+										?>
+										
+									<span class="thumb-info-wrapper">
+											<img src="galerie/<?php echo $row['photo'];?>" alt class="img-fluid" />
 										</span>
+									</a>
+									<?php 
+										$cnt=$cnt+1;
+										 }
+									?>
 									</a>
 									<span class="thumb-info-caption custom-box-shadow">
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
-												<a data-href="ajax/demo-church-gallery-ajax-on-page-1.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-													Baptism
+												<a data-href="ajax/gallery-ajax-on-page-7.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+													Presentation au temple
 												</a>
 											</h2>
 										</span>
@@ -213,16 +306,28 @@
 							</div>
 							<div class="col-lg-4">
 								<span class="thumb-info custom-thumb-info-4">
-									<a data-href="ajax/demo-church-gallery-ajax-on-page-2.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-										<span class="thumb-info-wrapper">
-											<img src="img/demos/church/gallery/gallery-8.jpg" alt class="img-fluid" />
+									<a data-href="ajax/gallery-ajax-on-page-8.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+											<?php
+												$sql=mysqli_query($con," SELECT * FROM `galerie` WHERE `type`='Bataillon' order by `id_photo` desc limit 1");
+												$cnt=1;
+												while($row=mysqli_fetch_array($sql))
+													{
+										?>
+										
+									<span class="thumb-info-wrapper">
+											<img src="galerie/<?php echo $row['photo'];?>" alt class="img-fluid" />
 										</span>
+									</a>
+									<?php 
+										$cnt=$cnt+1;
+										 }
+									?>
 									</a>
 									<span class="thumb-info-caption custom-box-shadow">
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
-												<a data-href="ajax/demo-church-gallery-ajax-on-page-2.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-													Wedding
+												<a data-href="ajax/gallery-ajax-on-page-8.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+													Bataillon
 												</a>
 											</h2>
 										</span>
@@ -231,16 +336,28 @@
 							</div>
 							<div class="col-lg-4">
 								<span class="thumb-info custom-thumb-info-4">
-									<a data-href="ajax/demo-church-gallery-ajax-on-page-3.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-										<span class="thumb-info-wrapper">
-											<img src="img/demos/church/gallery/gallery-9.jpg" alt class="img-fluid" />
+									<a data-href="ajax/gallery-ajax-on-page-9.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+											<?php
+												$sql=mysqli_query($con," SELECT * FROM `galerie` WHERE `type`='Week end Couple' order by `id_photo` desc limit 1");
+												$cnt=1;
+												while($row=mysqli_fetch_array($sql))
+													{
+										?>
+										
+									<span class="thumb-info-wrapper">
+											<img src="galerie/<?php echo $row['photo'];?>" alt class="img-fluid" />
 										</span>
+									</a>
+									<?php 
+										$cnt=$cnt+1;
+										 }
+									?>
 									</a>
 									<span class="thumb-info-caption custom-box-shadow">
 										<span class="thumb-info-caption-text">
 											<h2 class="font-weight-bold text-5 text-center">
-												<a data-href="ajax/demo-church-gallery-ajax-on-page-3.html" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
-													Church Community
+												<a data-href="ajax/gallery-ajax-on-page-9.php" class="text-decoration-none custom-secondary-font text-color-dark" data-ajax-on-page>
+													Week end Couple
 												</a>
 											</h2>
 										</span>
@@ -265,54 +382,10 @@
 					</div>
 				</section>
 
-			<footer id="footer" class="bg-color-secondary custom-footer m-0" style="background: url('img/demos/church/footer-bg.jpg'); background-size: cover;">
-				<div class="container pt-5">
-					<div class="row text-center">
-						<div class="col">
-							<a href="demo-church.html" class="text-decoration-none">
-								<img src="img/demos/church/logo-footer.png" width="123" height="48" alt class="img-fluid custom-img-fluid-center" />
-							</a>
-						</div>
-					</div>
-					<hr class="solid tall custom-hr-color-1">
-					<div class="row justify-content-center text-center">
-						<div class="col-lg-3 custom-sm-margin-bottom-1">
-							<i class="fas fa-map-marker-alt text-color-primary custom-icon-size-1"></i>
-							<p class="custom-text-color-2 alternative-font-4 text-3-5">
-								<strong class="d-block text-color-light custom-secondary-font text-5-5 line-height-8 mb-1">Porto Church</strong>
-								Porto Church 123 Porto Blvd, </br>Suite 100 New York, NY
-							</p>
-						</div>
-						<div class="col-lg-4 custom-sm-margin-bottom-1">
-							<i class="far fa-clock text-color-primary custom-icon-size-1"></i>
-							<p class="custom-text-color-2 alternative-font-4 text-3-5">
-								<strong class="d-block text-color-light custom-secondary-font text-5-5 line-height-8 mb-1">Join us on</strong>
-								Sunday Worship<br>
-								8.00pm - 9.00pm
-							</p>
-						</div>
-						<div class="col-lg-3">
-							<i class="fas fa-phone-volume text-color-primary custom-icon-size-1"></i>
-							<p class="alternative-font-4 text-3-5">
-								<strong class="d-block text-color-light custom-secondary-font text-5-5 line-height-8 mb-1">Call us now</strong>
-								<a href="tel:+91123456789" class="text-decoration-none custom-text-color-2">Phone : (123) 456-789</a></br>
-								<a href="mail:mail@example.com" class="text-decoration-none custom-text-color-2">Email : mail@example.com</a>
-							</p>
-						</div>
-					</div>
-					<hr class="solid tall custom-hr-color-1">
-					<div class="row text-center pb-5">
-						<div class="col">
-							<ul class="social-icons social-icons-clean custom-social-icons mb-3">
-								<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-								<li class="social-icons-googleplus"><a href="http://www.google.com/" target="_blank" title="Google Plus"><i class="fab fa-google-plus-g"></i></a></li>
-								<li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a></li>
-								<li class="social-icons-instagram"><a href="http://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-							</ul>
-							<p class="alternative-font-4 text-3 text-color-light opacity-7">© Copyright 2024. All Rights Reserved.</p>
-						</div>
-					</div>
-				</div>
+			 <footer   >
+			
+				<?php include('footer.php');?>
+		 
 			</footer>
 		</div>
 
