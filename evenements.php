@@ -1,3 +1,7 @@
+<?php
+include('include/config.php');
+?> 
+
 
 <!DOCTYPE html>
 <html lang="en" data-style-switcher-options="{'showBordersStyle': true, 'showLayoutStyle': false, 'showBackgroundColor': false, 'changeLogo': false, 'borderRadius': 0, 'colorPrimary': '#da7940', 'colorSecondary': '#312227', 'colorTertiary': '#efece8', 'colorQuaternary': '#101019'}">
@@ -7,17 +11,15 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>EDPPC | Église de Dieu de Petite Place Cazeau</title>	
+		<title>EDPPC | Évenement </title>	
 
-		<meta name="keywords" content="WebSite Template" />
-		<meta name="description" content="Porto - Multipurpose Website Template">
-		<meta name="author" content="okler.net">
+			<meta name="keywords" content="EDPPC" />
+		<meta name="description" content="Église de Dieu de Petite Place Cazeau">
+		<meta name="author" content="EDPPC">
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="img/icon_edppc.ico" type="" />
-		<!-- <link rel="apple-touch-icon" href="img/apple-touch-icon.png"> -->
-
-		<!-- Mobile Metas -->
+	 
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 
 		<!-- Web Fonts  -->		<link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CPlayfair+Display:400,400i,700%7CSintony:400,700,800&display=swap" rel="stylesheet" type="text/css">
@@ -73,6 +75,8 @@
 			 include('header.php');?>
 
 			<div role="main" class="main">
+			
+			
 
 				<section class="page-header page-header-modern bg-color-secondary page-header-lg mb-0">
 					<div class="container">
@@ -89,98 +93,170 @@
 						<div class="row">
 							<div class="col-lg-6 mb-4 mb-lg-0">
 								<h2 class="text-color-dark font-weight-bold">Prochain événement</h2>
+								
+								
+								
+								
+											<?php
+											$ret=mysqli_query($con," select `evenement_ID`, `evenement`, `Description`, image,
+																		 lieu, `heure_evenemen`,  day(date_evenement) as jour ,
+																			year(date_evenement) as anne ,
+																			MONTH(`date_evenement`)  ,
+																		CASE
+																				 WHEN  MONTH(`date_evenement`) = 1 THEN 'Jan'
+																				 WHEN  MONTH(`date_evenement`) =2 THEN 'Fév '
+																				 WHEN  MONTH(`date_evenement`) = 3 THEN 'Mars'
+																				 WHEN  MONTH(`date_evenement`) = 4 THEN 'Avril'
+																		  
+																				 WHEN  MONTH(`date_evenement`) = 5 THEN 'Mai'
+																				 WHEN  MONTH(`date_evenement`) =6 THEN 'Juin'
+																				 WHEN  MONTH(`date_evenement`) = 7 THEN 'Juillet'
+																				 WHEN  MONTH(`date_evenement`) = 8 THEN 'Aout'
+																				 
+																				 WHEN  MONTH(`date_evenement`) = 9 THEN 'Sep'
+																				 WHEN  MONTH(`date_evenement`) =10 THEN 'Oct'
+																				 WHEN  MONTH(`date_evenement`) = 11 THEN 'Nov'
+																				
+																				 ELSE 'Déc '
+																		END AS 'mois'
+																FROM `evenement` WHERE  date_evenement > date(now()) order by evenement_ID asc limit 1");
+											$cnt=1;
+											while ($row=mysqli_fetch_array($ret)) {
+										  ?>
+												
+								
+								
+								
+								
+								
+								
+								
+								
 								<article class="thumb-info custom-thumb-info custom-box-shadow">
 									<span class="thumb-info-wrapper">
-										<a href="demo-church-events-detail.html">
-											<img src="img/demos/church/event/event-1.jpg" alt class="img-fluid" />
+										<a href="#">
+											<img src="image/<?php echo $row['image'];?>" alt class="img-fluid"  style="width:628px; height:257px;"/>
 										</a>
 									</span>
 									<span class="thumb-info-caption">
 										<span class="custom-thumb-info-wrapper-box text-center justify-content-center d-flex mb-4">
-											<div class="countdown custom-newcomers-class custom-secondary-font custom-box-shadow font-weight-bold text-color-dark clock-one-events" data-plugin-countdown data-plugin-options="{'textDay': 'JOURS', 'textHour': 'HRS', 'textMin': 'MIN', 'textSec': 'SEC', 'date': '2025/01/01 12:00:00', 'numberClass': 'font-weight-bold text-color-primary', 'wrapperClass': 'text-color-dark', 'textDay': 'JOURS', 'textHour': 'Hrs', 'textMin': 'Min', 'textSec': 'Sec', 'uppercase': false}"></div>
+										
+										
+										
+										
+										
+										
+										
+												<div class="countdown custom-newcomers-class custom-secondary-font custom-box-shadow font-weight-bold 
+														text-color-dark clock-one-events" data-plugin-countdown data-plugin-options="{'textDay': 'JOURS', 'textHour': 'HRS', 'textMin': 'MIN', 'textSec': 'SEC', 
+														'date': '2024/08/17  1:00:00', 'numberClass': 
+														'font-weight-bold text-color-primary', 'wrapperClass': 'text-color-dark', 'textDay': 'JOURS', 'textHour': 'Hrs', 'textMin': 'Min', 
+														'textSec': 'Sec', 'uppercase': false}">   
+												</div>
 										</span>
+										 
 										<span class="custom-event-infos">
 											<ul>
 												<li>
 													<i class="far fa-clock"></i>
-													5:00 PM
+													<?php echo $row['heure_evenemen'];?>
 												</li>
 												<li class="text-uppercase">
 													<i class="fas fa-map-marker-alt"></i>
-													New York
+														<?php echo $row['lieu'];?>
 												</li>
 											</ul>
 										</span>
 										<span class="thumb-info-caption-text">
 											<h4 class="font-weight-bold mb-2">
-												<a href="demo-church-events-detail.html" class="text-decoration-none custom-secondary-font text-color-dark">
-													Mauris sagitis urna molestie
+												<a href="#" class="text-decoration-none custom-secondary-font text-color-dark">
+													<?php echo $row['evenement'];?>
 												</a>
 											</h4>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a lectus vitae arcu bibendum condimentum. In a porta nunc ...</p>
+											<p align="justify"><?php echo $row['Description'];?></p>
 										</span>
 									</span>
 								</article>
+								<?php 
+											$cnt=$cnt+1;
+										}?>
 							</div>
 							<div class="col-lg-6">
 								<h2 class="text-color-dark font-weight-bold">Evénement à venir</h2>
-								<article class="custom-post-event">
-									<div class="post-event-date bg-color-primary text-center">
-										<span class="month text-uppercase custom-secondary-font text-color-light">Oct</span>
-										<span class="day font-weight-bold text-color-light">10</span>
-										<span class="year text-color-light">2024</span>
+								
+							<table>
+							  <tbody>
+									<tr>
+										<td style="border-bottom:double;">
+													
+														<?php
+											$ret=mysqli_query($con," select `evenement_ID`, `evenement`, `Description`,
+																		 lieu, `heure_evenemen`,  day(date_evenement) as jour ,
+																			year(date_evenement) as anne ,
+																			MONTH(`date_evenement`)  ,
+																		CASE
+																				 WHEN  MONTH(`date_evenement`) = 1 THEN 'Jan'
+																				 WHEN  MONTH(`date_evenement`) =2 THEN 'Fév '
+																				 WHEN  MONTH(`date_evenement`) = 3 THEN 'Mars'
+																				 WHEN  MONTH(`date_evenement`) = 4 THEN 'Avril'
+																		  
+																				 WHEN  MONTH(`date_evenement`) = 5 THEN 'Mai'
+																				 WHEN  MONTH(`date_evenement`) =6 THEN 'Juin'
+																				 WHEN  MONTH(`date_evenement`) = 7 THEN 'Juillet'
+																				 WHEN  MONTH(`date_evenement`) = 8 THEN 'Aout'
+																				 
+																				 WHEN  MONTH(`date_evenement`) = 9 THEN 'Sep'
+																				 WHEN  MONTH(`date_evenement`) =10 THEN 'Oct'
+																				 WHEN  MONTH(`date_evenement`) = 11 THEN 'Nov'
+																				
+																				 ELSE 'Déc '
+																		END AS 'mois'
+																FROM `evenement` WHERE  date_evenement > date(now()) order by evenement_ID asc limit 2");
+											$cnt=1;
+											while ($row=mysqli_fetch_array($ret)) {
+										  ?>
+													
+													
+													<article class="custom-post-event" >
+													<hr class="solid">
+												<div class="post-event-date bg-color-primary text-center" >
+ 										<span class="month text-uppercase custom-secondary-font text-color-light"><?php echo $row['mois'];?></span>
+										<span class="day font-weight-bold text-color-light"><?php echo $row['jour'];?></span>
+										<span class="year text-color-light"><?php echo $row['anne'];?></span>
 									</div>
 									<div class="post-event-content custom-margin-1">
 										<span class="custom-event-infos">
 											<ul>
 												<li>
 													<i class="far fa-clock"></i>
-													5:00 PM
+													<?php echo $row['heure_evenemen'];?>
 												</li>
 												<li class="text-uppercase">
 													<i class="fas fa-map-marker-alt"></i>
-													New York
+													<?php echo $row['lieu'];?>
 												</li>
 											</ul>
 										</span>
 										<h4 class="font-weight-bold">
-											<a href="demo-church-events-detail.html" class="text-decoration-none custom-secondary-font text-color-dark">Mauris ornare semeu lorem</a>
+											<a href="#" class="text-decoration-none custom-secondary-font text-color-dark"><?php echo $row['evenement'];?></a>
 										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin commodo nisl a fermentum varius. Aenean interdum lectus at tortor ullamcorper, eu maximus...</p>
+										<p align="justify"> <?php echo $row['Description'];?></p>
 									</div>
-								</article>
-								<hr class="solid">
-								<article class="custom-post-event">
-									<div class="post-event-date bg-color-primary text-center">
-										<span class="month text-uppercase custom-secondary-font text-color-light">Oct</span>
-										<span class="day font-weight-bold text-color-light">11</span>
-										<span class="year text-color-light">2024</span>
-									</div>
-									<div class="post-event-content custom-margin-1">
-										<span class="custom-event-infos">
-											<ul>
-												<li>
-													<i class="far fa-clock"></i>
-													5:00 PM
-												</li>
-												<li class="text-uppercase">
-													<i class="fas fa-map-marker-alt"></i>
-													New York
-												</li>
-											</ul>
-										</span>
-										<h4 class="font-weight-bold">
-											<a href="demo-church-events-detail.html" class="text-decoration-none custom-secondary-font text-color-dark">Curabitur vehicula massa</a>
-										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean congue dui non libero tincidunt commodo. Proin eget venenatis mauris.</p>
-									</div>
-								</article>
-							</div>
+										<?php 
+											$cnt=$cnt+1;
+										}?>
+										
+											</article>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+ 							</div>
 						</div>
 					</div>
 				</section>
 
-				<section class="section section-no-border bg-color-light m-0">
+			<section class="section section-no-border bg-color-light m-0">
 					<div class="container">
 						<div class="row">
 							<div class="col">
@@ -189,125 +265,258 @@
 						</div>
 						<div class="row">
 							<div class="col-lg-6">
+							
+							
+										<?php
+											$ret=mysqli_query($con," select `evenement_ID`, `evenement`, `Description`,
+																		 lieu, `heure_evenemen`,  day(date_evenement) as jour ,
+																			year(date_evenement) as anne ,
+																			MONTH(`date_evenement`)  ,
+																		CASE
+																				 WHEN  MONTH(`date_evenement`) = 1 THEN 'Jan'
+																				 WHEN  MONTH(`date_evenement`) =2 THEN 'Fév '
+																				 WHEN  MONTH(`date_evenement`) = 3 THEN 'Mars'
+																				 WHEN  MONTH(`date_evenement`) = 4 THEN 'Avril'
+																		  
+																				 WHEN  MONTH(`date_evenement`) = 5 THEN 'Mai'
+																				 WHEN  MONTH(`date_evenement`) =6 THEN 'Juin'
+																				 WHEN  MONTH(`date_evenement`) = 7 THEN 'Juillet'
+																				 WHEN  MONTH(`date_evenement`) = 8 THEN 'Aout'
+																				 
+																				 WHEN  MONTH(`date_evenement`) = 9 THEN 'Sep'
+																				 WHEN  MONTH(`date_evenement`) =10 THEN 'Oct'
+																				 WHEN  MONTH(`date_evenement`) = 11 THEN 'Nov'
+																				
+																				 ELSE 'Déc '
+																		END AS 'mois'
+																FROM `evenement` WHERE  date_evenement < date(now()) order by evenement_ID asc limit 1");
+											$cnt=1;
+											while ($row=mysqli_fetch_array($ret)) {
+										  ?>
+							  
 								<article class="custom-post-event bg-color-light mb-4 mb-lg-0">
+								<hr class="solid">
 									<div class="post-event-date bg-color-primary text-center">
-										<span class="month text-uppercase custom-secondary-font text-color-light">Oct</span>
-										<span class="day font-weight-bold text-color-light">05</span>
-										<span class="year text-color-light">2024</span>
+										<span class="month text-uppercase custom-secondary-font text-color-light"><?php echo $row['mois'];?></span>
+										<span class="day font-weight-bold text-color-light"><?php echo $row['jour'];?></span>
+										<span class="year text-color-light"><?php echo $row['anne'];?></span>
 									</div>
 									<div class="post-event-content custom-margin-1">
 										<span class="custom-event-infos">
 											<ul>
 												<li>
 													<i class="far fa-clock"></i>
-													5:00 PM
+													<?php echo $row['heure_evenemen'];?>
 												</li>
 												<li class="text-uppercase">
 													<i class="fas fa-map-marker-alt"></i>
-													New York
+													<?php echo $row['lieu'];?>
 												</li>
 											</ul>
 										</span>
 										<h4 class="font-weight-bold text-color-dark">
-											<a href="demo-church-events-detail.html" class="text-decoration-none custom-secondary-font text-color-dark">
-												Mauris ornare semeu lorem
+											<a href="#" class="text-decoration-none custom-secondary-font text-color-dark">
+												<?php echo $row['evenement'];?>
 											</a>
 										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ex odio, venenatis at tempor ut, egestas...</p>
+										<p align="justify"><?php echo $row['Description'];?></p>
 									</div>
-									<hr class="solid">
+									
 								</article>
+								<?php 
+											$cnt=$cnt+1;
+										}?>
 							</div>
+							
 							<div class="col-lg-6">
-								<article class="custom-post-event bg-color-light mb-4 mb-lg-0">
+							 
+										<?php
+											$ret=mysqli_query($con," select `evenement_ID`, `evenement`, `Description`,
+																		 lieu, `heure_evenemen`,  day(date_evenement) as jour ,
+																			year(date_evenement) as anne ,
+																			MONTH(`date_evenement`)  ,
+																		CASE
+																				 WHEN  MONTH(`date_evenement`) = 1 THEN 'Jan'
+																				 WHEN  MONTH(`date_evenement`) =2 THEN 'Fév '
+																				 WHEN  MONTH(`date_evenement`) = 3 THEN 'Mars'
+																				 WHEN  MONTH(`date_evenement`) = 4 THEN 'Avril'
+																		  
+																				 WHEN  MONTH(`date_evenement`) = 5 THEN 'Mai'
+																				 WHEN  MONTH(`date_evenement`) =6 THEN 'Juin'
+																				 WHEN  MONTH(`date_evenement`) = 7 THEN 'Juillet'
+																				 WHEN  MONTH(`date_evenement`) = 8 THEN 'Aout'
+																				 
+																				 WHEN  MONTH(`date_evenement`) = 9 THEN 'Sep'
+																				 WHEN  MONTH(`date_evenement`) =10 THEN 'Oct'
+																				 WHEN  MONTH(`date_evenement`) = 11 THEN 'Nov'
+																				
+																				 ELSE 'Déc '
+																		END AS 'mois'
+																FROM `evenement` WHERE  date_evenement < date(now()) order by evenement_ID asc limit 1");
+											$cnt=1;
+											while ($row=mysqli_fetch_array($ret)) {
+										  ?>
+							
+							<article class="custom-post-event bg-color-light mb-4 mb-lg-0">
+								<hr class="solid">
 									<div class="post-event-date bg-color-primary text-center">
-										<span class="month text-uppercase custom-secondary-font text-color-light">Set</span>
-										<span class="day font-weight-bold text-color-light">30</span>
-										<span class="year text-color-light">2024</span>
+										<span class="month text-uppercase custom-secondary-font text-color-light"><?php echo $row['mois'];?></span>
+										<span class="day font-weight-bold text-color-light"><?php echo $row['jour'];?></span>
+										<span class="year text-color-light"><?php echo $row['anne'];?></span>
 									</div>
 									<div class="post-event-content custom-margin-1">
 										<span class="custom-event-infos">
 											<ul>
 												<li>
 													<i class="far fa-clock"></i>
-													2:00 PM
+													<?php echo $row['heure_evenemen'];?>
 												</li>
 												<li class="text-uppercase">
 													<i class="fas fa-map-marker-alt"></i>
-													New York
+													<?php echo $row['lieu'];?>
 												</li>
 											</ul>
 										</span>
 										<h4 class="font-weight-bold text-color-dark">
-											<a href="demo-church-events-detail.html" class="text-decoration-none custom-secondary-font text-color-dark">
-												Mauris ornare semeu lorem
+											<a href="#" class="text-decoration-none custom-secondary-font text-color-dark">
+												<?php echo $row['evenement'];?>
 											</a>
 										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ex odio, venenatis at tempor ut, egestas...</p>
+										<p align="justify"><?php echo $row['Description'];?></p>
 									</div>
-									<hr class="solid">
+									
 								</article>
+								<?php 
+											$cnt=$cnt+1;
+										}?>
 							</div>
 						</div>
+						
+						
 						<div class="row">
 							<div class="col-lg-6">
-								<article class="custom-post-event bg-color-light custom-sm-margin-bottom-2">
+							
+										<?php
+											$ret=mysqli_query($con," select `evenement_ID`, `evenement`, `Description`,
+																		 lieu, `heure_evenemen`,  day(date_evenement) as jour ,
+																			year(date_evenement) as anne ,
+																			MONTH(`date_evenement`)  ,
+																		CASE
+																				 WHEN  MONTH(`date_evenement`) = 1 THEN 'Jan'
+																				 WHEN  MONTH(`date_evenement`) =2 THEN 'Fév '
+																				 WHEN  MONTH(`date_evenement`) = 3 THEN 'Mars'
+																				 WHEN  MONTH(`date_evenement`) = 4 THEN 'Avril'
+																		  
+																				 WHEN  MONTH(`date_evenement`) = 5 THEN 'Mai'
+																				 WHEN  MONTH(`date_evenement`) =6 THEN 'Juin'
+																				 WHEN  MONTH(`date_evenement`) = 7 THEN 'Juillet'
+																				 WHEN  MONTH(`date_evenement`) = 8 THEN 'Aout'
+																				 
+																				 WHEN  MONTH(`date_evenement`) = 9 THEN 'Sep'
+																				 WHEN  MONTH(`date_evenement`) =10 THEN 'Oct'
+																				 WHEN  MONTH(`date_evenement`) = 11 THEN 'Nov'
+																				
+																				 ELSE 'Déc '
+																		END AS 'mois'
+																FROM `evenement` WHERE  date_evenement < date(now()) order by evenement_ID asc limit 1");
+											$cnt=1;
+											while ($row=mysqli_fetch_array($ret)) {
+										  ?>
+										  
+							<article class="custom-post-event bg-color-light mb-4 mb-lg-0">
+								<hr class="solid">
 									<div class="post-event-date bg-color-primary text-center">
-										<span class="month text-uppercase custom-secondary-font text-color-light">Set</span>
-										<span class="day font-weight-bold text-color-light">25</span>
-										<span class="year text-color-light">2024</span>
+										<span class="month text-uppercase custom-secondary-font text-color-light"><?php echo $row['mois'];?></span>
+										<span class="day font-weight-bold text-color-light"><?php echo $row['jour'];?></span>
+										<span class="year text-color-light"><?php echo $row['anne'];?></span>
 									</div>
 									<div class="post-event-content custom-margin-1">
 										<span class="custom-event-infos">
 											<ul>
 												<li>
 													<i class="far fa-clock"></i>
-													8:00 AM
+													<?php echo $row['heure_evenemen'];?>
 												</li>
 												<li class="text-uppercase">
 													<i class="fas fa-map-marker-alt"></i>
-													New York
+													<?php echo $row['lieu'];?>
 												</li>
 											</ul>
 										</span>
 										<h4 class="font-weight-bold text-color-dark">
-											<a href="demo-church-events-detail.html" class="text-decoration-none custom-secondary-font text-color-dark">
-												Mauris ornare semeu lorem
+											<a href="#" class="text-decoration-none custom-secondary-font text-color-dark">
+												<?php echo $row['evenement'];?>
 											</a>
 										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ex odio, venenatis at tempor ut, egestas...</p>
+										<p align="justify"><?php echo $row['Description'];?></p>
 									</div>
-									<hr class="solid d-lg-none">
+									
 								</article>
+								<?php 
+											$cnt=$cnt+1;
+										}?>
 							</div>
+							
 							<div class="col-lg-6">
-								<article class="custom-post-event bg-color-light">
+							
+										<?php
+											$ret=mysqli_query($con," select `evenement_ID`, `evenement`, `Description`,
+																		 lieu, `heure_evenemen`,  day(date_evenement) as jour ,
+																			year(date_evenement) as anne ,
+																			MONTH(`date_evenement`)  ,
+																		CASE
+																				 WHEN  MONTH(`date_evenement`) = 1 THEN 'Jan'
+																				 WHEN  MONTH(`date_evenement`) =2 THEN 'Fév '
+																				 WHEN  MONTH(`date_evenement`) = 3 THEN 'Mars'
+																				 WHEN  MONTH(`date_evenement`) = 4 THEN 'Avril'
+																		  
+																				 WHEN  MONTH(`date_evenement`) = 5 THEN 'Mai'
+																				 WHEN  MONTH(`date_evenement`) =6 THEN 'Juin'
+																				 WHEN  MONTH(`date_evenement`) = 7 THEN 'Juillet'
+																				 WHEN  MONTH(`date_evenement`) = 8 THEN 'Aout'
+																				 
+																				 WHEN  MONTH(`date_evenement`) = 9 THEN 'Sep'
+																				 WHEN  MONTH(`date_evenement`) =10 THEN 'Oct'
+																				 WHEN  MONTH(`date_evenement`) = 11 THEN 'Nov'
+																				
+																				 ELSE 'Déc'
+																		END AS 'mois'
+																FROM `evenement` WHERE  date_evenement < date(now()) order by evenement_ID asc limit 1");
+											$cnt=1;
+											while ($row=mysqli_fetch_array($ret)) {
+										  ?>
+								<article class="custom-post-event bg-color-light mb-4 mb-lg-0">
+								<hr class="solid">
 									<div class="post-event-date bg-color-primary text-center">
-										<span class="month text-uppercase custom-secondary-font text-color-light">Set</span>
-										<span class="day font-weight-bold text-color-light">17</span>
-										<span class="year text-color-light">2024</span>
+										<span class="month text-uppercase custom-secondary-font text-color-light"><?php echo $row['mois'];?></span>
+										<span class="day font-weight-bold text-color-light"><?php echo $row['jour'];?></span>
+										<span class="year text-color-light"><?php echo $row['anne'];?></span>
 									</div>
 									<div class="post-event-content custom-margin-1">
 										<span class="custom-event-infos">
 											<ul>
 												<li>
 													<i class="far fa-clock"></i>
-													11:00 AM
+													<?php echo $row['heure_evenemen'];?>
 												</li>
 												<li class="text-uppercase">
 													<i class="fas fa-map-marker-alt"></i>
-													New York
+													<?php echo $row['lieu'];?>
 												</li>
 											</ul>
 										</span>
 										<h4 class="font-weight-bold text-color-dark">
-											<a href="demo-church-events-detail.html" class="text-decoration-none custom-secondary-font text-color-dark">
-												Mauris ornare semeu lorem
+											<a href="#" class="text-decoration-none custom-secondary-font text-color-dark">
+												<?php echo $row['evenement'];?>
 											</a>
 										</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ex odio, venenatis at tempor ut, egestas...</p>
+										<p align="justify"><?php echo $row['Description'];?></p>
 									</div>
+									
 								</article>
+								<?php 
+											$cnt=$cnt+1;
+										}?>
 							</div>
 						</div>
 					</div>
@@ -321,60 +530,16 @@
 								<h2 class="font-weight-bold custom-text-color-1 m-0">En savoir plus sur l'Église. <span class="font-weight-normal custom-secondary-font custom-font-italic">Votre place est ici</span></h2>
 							</div>
 							<div class="col-lg-2 mt-4 mt-lg-0">
-								<a href="aproposdenous.html" class="btn btn-primary custom-btn-style-1 text-uppercase">Guide des visiteurs</a>
+								<a href="aproposdenous.php" class="btn btn-primary custom-btn-style-1 text-uppercase">Guide des visiteurs</a>
 							</div>
 						</div>
 					</div>
 				</section>
 
-			<footer id="footer" class="bg-color-secondary custom-footer m-0" style="background: url('img/demos/church/footer-bg.jpg'); background-size: cover;">
-				<div class="container pt-5">
-					<div class="row text-center">
-						<div class="col">
-							<a href="index.html" class="text-decoration-none">
-								<img src="img/lfoot.png" width="123" height="48" alt class="img-fluid custom-img-fluid-center" />
-							</a>
-						</div>
-					</div>
-					<hr class="solid tall custom-hr-color-1">
-					<div class="row justify-content-center text-center">
-						<div class="col-lg-3 custom-sm-margin-bottom-1">
-							<i class="fas fa-map-marker-alt text-color-primary custom-icon-size-1"></i>
-							<p class="custom-text-color-2 alternative-font-4 text-3-5">
-								<strong class="d-block text-color-light custom-secondary-font text-5-5 line-height-8 mb-1">Église de Dieu de</br>Petite Place Cazeau</strong>
-								1, angle rue Saint Pierre et camep, </br>Petite Place Cazeau, Delmas 33, Haiti
-							</p>
-						</div>
-						<div class="col-lg-4 custom-sm-margin-bottom-1">
-							<i class="far fa-clock text-color-primary custom-icon-size-1"></i>
-							<p class="custom-text-color-2 alternative-font-4 text-3-5">
-								<strong class="d-block text-color-light custom-secondary-font text-5-5 line-height-8 mb-1">Rejoignez-nous pour</strong>
-								Le culte du dimanche<br>
-								8.00am - 10.00am
-							</p>
-						</div>
-						<div class="col-lg-3">
-							<i class="fas fa-phone-volume text-color-primary custom-icon-size-1"></i>
-							<p class="alternative-font-4 text-3-5">
-								<strong class="d-block text-color-light custom-secondary-font text-5-5 line-height-8 mb-1">Contactez-nous</br>dès maintenant</strong>
-								<a href="tel:+50942132953" class="text-decoration-none custom-text-color-2">Phone : +509 42 13 2953</a></br>
-								<a href="mail:mail@example.com" class="text-decoration-none custom-text-color-2">Email : <span class="__cf_email__" data-cfemail="9bf6faf2f7dbfee3faf6ebf7feb5f8f4f6">[email&#160;protected]</span></a>
-							</p>
-						</div>
-					</div>
-					<hr class="solid tall custom-hr-color-1">
-					<div class="row text-center pb-5">
-						<div class="col">
-							<ul class="social-icons social-icons-clean custom-social-icons mb-3">
-								<li class="social-icons-facebook"><a href="http://www.facebook.com/eglisededieuppc" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-								<!-- <li class="social-icons-googleplus"><a href="http://www.google.com/" target="_blank" title="Google Plus"><i class="fab fa-google-plus-g"></i></a></li> -->
-								<li class="social-icons-youtube"><a href="http://www.youtube.com/@eglisededieudepetite-place3217" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a></li>
-								<li class="social-icons-instagram"><a href="http://www.instagram.com/eglisededieuppc" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-							</ul>
-							<p class="alternative-font-4 text-3 text-color-light opacity-7">© Copyright 2024. All Rights Reserved.</p>
-						</div>
-					</div>
-				</div>
+			<footer   >
+			
+				<?php include('footer.php');?>
+		 
 			</footer>
 		</div>
 
